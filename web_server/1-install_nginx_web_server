@@ -1,16 +1,8 @@
 #!/usr/bin/env bash
-# bash script to install nginx web server & make the following configurations:
-#   - Nginx should be listening on port 80
-#   - Return page containing "Holberton School" when queried
+# installs nginx and configures it on a remote server
 
-apt-get update
-apt-get install -y nginx
-
-# Change default Nginx page content
-echo "Holberton School for the win!" > /var/www/html/index.html
-
-# Verify Nginx is listening on port 80
-netstat -tulpen | grep nginx | grep -q ":80 "
-
-# Restart Nginx service
-/etc/init.d/nginx reload
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+service nginx start
