@@ -1,4 +1,4 @@
-#!/usr/binn/env bash
+#!/usr/bin/env bash
 # bash script that transfera a file from our client to a server
 
 if [ $# -lt 4 ]
